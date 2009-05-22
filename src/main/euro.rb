@@ -24,8 +24,27 @@ class Euro
     end
   end
 
-  def pick_deputies
-    TODO
+  def pick_deputies(number, with_party=false)
+    picker = CandidatePicker.new
+    picker.candidates = @candidates
+    picker.pick_candidates(@scores, number, number, with_party)
+  end
+
+  def pick_from_folder(count, folder_name)
+
+    # Read all candidates from the folder
+    Dir["#{folder_name}/candidates/*"].each do |filename|
+      puts "Reading candidates #{filename}"
+      read_candidates(File.basename(filename).to_sym, File.open(filename).read)
+    end
+
+    read_scores(File.open("#{folder_name}/scores").read)
+    deputies = pick_deputies(count, true)
+    puts "Elected candidates : "
+    deputies.each_with_index do |d, i|
+      puts "#{i+1} - #{d}"
+    end
+
   end
 
 end

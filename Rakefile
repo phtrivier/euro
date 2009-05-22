@@ -15,10 +15,9 @@ Rake::TestTask.new("test") do |t|
   t.warning = false
 end
 
-desc "Play"
-task :play => [:test] do
+desc "Pick"
+task :pick => [:test] do
   $LOAD_PATH << "./src/main"
-  $LOAD_PATH << "./src/gui"
-  require "gui.rb"
-  play
+  require "pick_deputies.rb"
+  pick
 end

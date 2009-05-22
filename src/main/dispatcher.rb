@@ -13,10 +13,14 @@ class Dispatcher
   def means(level)
     res = { }
     @scores.each do |party,score|
-      s = BigDecimal(score.to_s)
-      res[party] = (1..level).collect do |denominator|
-        d = BigDecimal(denominator.to_s)
-        (s / d).round(2).to_s("f")
+      if (score >= 5)
+
+        s = BigDecimal(score.to_s)
+        res[party] = (1..level).collect do |denominator|
+          d = BigDecimal(denominator.to_s)
+          (s / d).round(2).to_s("f")
+        end
+
       end
     end
     res

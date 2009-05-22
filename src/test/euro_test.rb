@@ -58,6 +58,7 @@ EOF
 modem1
 modem2
 modem3
+modem4
 EOF
 
     e = Euro.new
@@ -68,7 +69,11 @@ EOF
     e.read_scores(scores)
     deputies = e.pick_deputies(9)
 
-    assert_equal ["ump1", "ps1", "modem1", "ump2", "ump3", "ps2", "modem2", "ps3", "modem3"], deputies
+    assert_equal ["ump1", "ps1", "modem1", "ump2","ump3", "ps2", "modem2", "ump4", "ps3"], deputies
+
+    deputies = e.pick_deputies(9, true)
+
+    assert_equal ["ump1 (ump)", "ps1 (ps)", "modem1 (modem)", "ump2 (ump)","ump3 (ump)", "ps2 (ps)", "modem2 (modem)", "ump4 (ump)", "ps3 (ps)"], deputies
 
   end
 
