@@ -1,0 +1,32 @@
+This is a silly script to compute results from
+the European Parlement's French Deputies.
+
+THIS COMES WITH ABSOLUTELY NO WARRANTY.
+
+I used it for an article of my french blog,
+http://enattendantlamor.blogspot.com/2009/05/les-europeennes-un-election-rigolote_22.html .
+
+To use the script, you will need ruby and rake installed.
+
+Then, in the folder "data", create a subfolder with you region (see example 'sud_ouest').
+In this folder, create a subfolder "candidates", and for each party that has a list, create a file
+named after this party (names should not contain spaces, so use for example 'ump', 'ps', 'modem' etc...)
+
+Next to the "candidates" folder, create a file "scores", with, for each line, the name of the party and its score.
+
+Than, at the root folder, type :
+
+rake pick data/sud_ouest 10
+
+where data/sud_ouest is the folder for you region, and 10 is the number of duputies to pick.
+
+I hope this works !!!
+
+Again, THIS COMES WITH ABSOLUTELY NO WARRANTY.
+Distribute, modify and improve it as you please.
+Do not use it on an election-night show, or you might be ridiculous.
+If you find a way to mash it up with micandidate.eu's list of candidates, be my guests !
+If you don't like the way Europe is run, go vote on the 5/6/7th of June !!!
+
+"Le 7 juin, allez votez, on va bien rigoler !!"
+
